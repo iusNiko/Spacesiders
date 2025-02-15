@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://uoermgr2fl2d"]
+
+[ext_resource type="Texture2D" uid="uid://ksyqpkeprisx" path="res://Art/UI/Meta Hub/launch.png" id="1_qrdru"]
+[ext_resource type="Script" path="res://Scripts/UI/Meta Hub/MetaHubUI.cs" id="1_yhdj0"]
+[ext_resource type="Script" path="res://Scripts/UI/Meta Hub/LaunchButton.cs" id="2_mwd21"]
+[ext_resource type="Script" path="res://Scripts/UI/Meta Hub/MothershipTypeSelection.cs" id="6_1k4bn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h8k14"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_tsknk"]
+font_size = 32
+
+[node name="MetaHub" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MetaHubUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yhdj0")
+
+[node name="LaunchButton" type="TextureRect" parent="CanvasLayer/MetaHubUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.675
+anchor_right = 7.675
+anchor_bottom = 2.8
+offset_left = 129.0
+offset_top = 843.0
+offset_right = 329.0
+offset_bottom = 993.0
+texture = ExtResource("1_qrdru")
+script = ExtResource("2_mwd21")
+
+[node name="ModBayButton" type="Label" parent="CanvasLayer/MetaHubUI"]
+layout_mode = 0
+offset_left = 1014.0
+offset_top = 153.0
+offset_right = 1870.0
+offset_bottom = 216.0
+text = "[D] Configure your mothersip here ----->"
+label_settings = SubResource("LabelSettings_h8k14")
+
+[node name="Back" type="Label" parent="CanvasLayer/MetaHubUI"]
+layout_mode = 0
+offset_left = 1946.0
+offset_top = 955.0
+offset_right = 2055.0
+offset_bottom = 1000.0
+text = "<---- [A]"
+label_settings = SubResource("LabelSettings_tsknk")
+
+[node name="Weapons" type="HBoxContainer" parent="CanvasLayer/MetaHubUI"]
+layout_mode = 0
+offset_left = 1974.0
+offset_top = 52.0
+offset_right = 3029.0
+offset_bottom = 355.0
+
+[node name="ConstructionBays" type="HBoxContainer" parent="CanvasLayer/MetaHubUI"]
+layout_mode = 0
+offset_left = 1994.0
+offset_top = 391.0
+offset_right = 3056.0
+offset_bottom = 791.0
+
+[node name="MothershipTypeSelection" type="ItemList" parent="CanvasLayer/MetaHubUI"]
+layout_mode = 0
+offset_left = 3084.0
+offset_top = 55.0
+offset_right = 3335.0
+offset_bottom = 343.0
+script = ExtResource("6_1k4bn")
+
+[node name="Label" type="Label" parent="CanvasLayer/MetaHubUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://trmubgy64lno"]
+
+[ext_resource type="Script" path="res://Scripts/Map.cs" id="1_a11mb"]
+[ext_resource type="PackedScene" uid="uid://cgjjqmffn562n" path="res://Prefabs/InteractableObjects/HyperLink.tscn" id="2_kaglw"]
+[ext_resource type="PackedScene" uid="uid://cixxshdydivty" path="res://Prefabs/MapElements/RandomEnemies.tscn" id="2_xljcj"]
+
+[node name="WesternBorderlands1" type="Node2D" node_paths=PackedStringArray("SpawnPoint")]
+script = ExtResource("1_a11mb")
+MapName = "Farrenhelm Passage"
+Region = "Western Borderlands"
+MainUnitPool = "west_outskirts"
+SpawnPoint = NodePath("SpawnPoint")
+NorthernBoundary = -2100.0
+SouthernBoundary = 1200.0
+EasternBoundary = 900.0
+WesternBoundary = -900.0
+
+[node name="Exit" parent="." instance=ExtResource("2_kaglw")]
+position = Vector2(0, -1800)
+NextMap = "TehhanasRefuge"
+
+[node name="RandomEnemies" parent="." instance=ExtResource("2_xljcj")]
+RandomEnemiesRadius = 800.0
+RandomEnemiesMinDistance = 125.0
+RandomEnemiesMaxGroups = 8
+UnitsPool = "west_outskirts"
+ExcludedRarities = [2, 3, 1]
+
+[node name="RandomEnemies2" parent="." instance=ExtResource("2_xljcj")]
+position = Vector2(0, -1300)
+RandomEnemiesRadius = 500.0
+RandomEnemiesMaxGroups = 5
+UnitsPool = "west_outskirts"
+EnemiesPerGroup = 6
+ExcludedRarities = [2, 3]
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, 1000)

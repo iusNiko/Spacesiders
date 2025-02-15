@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://42s8errna5y1"]
+
+[ext_resource type="PackedScene" uid="uid://bylr0xp0430du" path="res://Prefabs/Projectiles/Cannonball.tscn" id="1_lghx1"]
+[ext_resource type="Texture2D" uid="uid://nixmlalolbqe" path="res://Art/Projectiles/SmallDragonBreath.png" id="2_ffnhx"]
+[ext_resource type="Script" path="res://Scripts/Projectiles/Breath.cs" id="2_gjuh2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bpie2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ffnhx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqpkl"]
+size = Vector2(40, 4)
+
+[node name="Projectile" instance=ExtResource("1_lghx1")]
+script = ExtResource("2_gjuh2")
+MaxLifetime = 0.2
+Speed = 0.0
+_damage = 24.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+modulate = Color(4, 2, 0, 1)
+position = Vector2(20, 0)
+sprite_frames = SubResource("SpriteFrames_bpie2")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_fqpkl")

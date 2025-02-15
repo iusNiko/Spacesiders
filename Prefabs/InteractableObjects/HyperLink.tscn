@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgjjqmffn562n"]
+
+[ext_resource type="PackedScene" uid="uid://k8v6kvjyadlb" path="res://Prefabs/InteractableObject.tscn" id="1_mb468"]
+[ext_resource type="Script" path="res://Scripts/InteractableObjects/HyperLink.cs" id="2_2v2us"]
+
+[node name="InteractableObject" instance=ExtResource("1_mb468")]
+script = ExtResource("2_2v2us")
+NextMap = ""

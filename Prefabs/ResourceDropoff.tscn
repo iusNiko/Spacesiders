@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csy7eudi33s4c"]
+
+[ext_resource type="Script" path="res://Scripts/ResourceDropoff.cs" id="1_wt0qi"]
+
+[node name="ResourceDropoff" type="Node"]
+script = ExtResource("1_wt0qi")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://y0medgkvytw"]
+
+[ext_resource type="Script" path="res://Scripts/Unit.cs" id="1_rddh8"]
+[ext_resource type="PackedScene" uid="uid://b5fbg84hnk3re" path="res://Prefabs/UI/HealthBar.tscn" id="2_is4lu"]
+[ext_resource type="PackedScene" uid="uid://47exlwlld5mj" path="res://Prefabs/ProductionQueue.tscn" id="2_lyy3r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52ao7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Unit" type="Area2D"]
+script = ExtResource("1_rddh8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="ShootPoints" type="Node2D" parent="."]
+
+[node name="SelectionBox" type="Panel" parent="."]
+visible = false
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_52ao7")
+
+[node name="Weapons" type="Node" parent="."]
+
+[node name="ProductionQueue" parent="." instance=ExtResource("2_lyy3r")]
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="HealthBar" parent="." instance=ExtResource("2_is4lu")]
+z_index = 10
+offset_left = -16.0
+offset_top = -23.0
+offset_right = 16.0
+offset_bottom = -18.0

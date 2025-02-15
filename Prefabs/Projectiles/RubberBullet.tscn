@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://5u6tue0dcsa8"]
+
+[ext_resource type="PackedScene" uid="uid://bkams2t54ecip" path="res://Prefabs/Projectiles/DirectedProjectile.tscn" id="1_0oj86"]
+[ext_resource type="Texture2D" uid="uid://codltsc3443qx" path="res://Art/Projectiles/RubberBullet.png" id="2_1qtqy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lqvbb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1qtqy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pymmm"]
+size = Vector2(3.08203, 3.08203)
+
+[node name="Projectile" instance=ExtResource("1_0oj86")]
+Speed = 450.0
+_damage = 3.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_lqvbb")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_pymmm")

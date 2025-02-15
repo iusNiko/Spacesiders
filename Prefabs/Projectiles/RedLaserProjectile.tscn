@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://doetefh5icfpa"]
+
+[ext_resource type="PackedScene" uid="uid://dyncrrfismipe" path="res://Prefabs/Projectiles/HomingProjectile.tscn" id="1_xp2wa"]
+[ext_resource type="Texture2D" uid="uid://dvy2m7knb6lbn" path="res://Art/Projectiles/LaserProjectile.png" id="2_1f3sw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fa0a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1f3sw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28440"]
+size = Vector2(6, 1)
+
+[node name="Projectile" instance=ExtResource("1_xp2wa")]
+Speed = 200.0
+_damage = 10.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+modulate = Color(7, 0, 0, 1)
+sprite_frames = SubResource("SpriteFrames_1fa0a")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_28440")

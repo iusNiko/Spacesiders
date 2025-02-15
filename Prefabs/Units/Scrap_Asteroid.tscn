@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://djn8nj2hvob1w"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_jrwxn"]
+[ext_resource type="Texture2D" uid="uid://by3xr0xvg2fq1" path="res://Art/Resources/ScrapAsteroid.png" id="2_cd6kl"]
+[ext_resource type="PackedScene" uid="uid://31b8wwbaffdq" path="res://Prefabs/ResourceDeposit.tscn" id="3_lutvl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xwelo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cd6kl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0f4gl"]
+radius = 22.0907
+
+[node name="Unit" instance=ExtResource("1_jrwxn")]
+Health = 10000.0
+_maxHealth = 10000.0
+_armor = 1000.0
+Team = 0
+Invincible = true
+Flags = PackedStringArray("Resource", "Scrap")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+z_index = -5
+sprite_frames = SubResource("SpriteFrames_xwelo")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_0f4gl")
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -26.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 26.0
+
+[node name="HealthBar" parent="." index="7"]
+offset_top = -29.0
+offset_bottom = -24.0
+
+[node name="ResourceDeposit" parent="." index="8" instance=ExtResource("3_lutvl")]
+ResourceType = "Scrap"
+ResourceAmount = 20.0

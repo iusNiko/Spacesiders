@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://h4s8ha2yeuxy"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_ywpp6"]
+[ext_resource type="Texture2D" uid="uid://cjm7rvh1n8dfq" path="res://Art/Units/Harvester.png" id="2_onvlw"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="3_xrlwm"]
+[ext_resource type="PackedScene" uid="uid://dv2c3u208jbj2" path="res://Prefabs/Abilities/Ability_Harvest.tscn" id="4_v65fu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ro86x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onvlw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crh0i"]
+radius = 9.0
+height = 22.0
+
+[node name="Unit" instance=ExtResource("1_ywpp6")]
+Health = 400.0
+_maxHealth = 400.0
+_armor = 10.0
+_moveSpeed = 125.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ro86x")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_crh0i")
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -11.0
+offset_top = -20.0
+offset_right = 11.0
+offset_bottom = 20.0
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("3_xrlwm")]
+
+[node name="Ability" parent="Abilities" index="1" instance=ExtResource("4_v65fu")]
+ResourceTypes = PackedStringArray("Scrap")
+HarvestRates = PackedFloat32Array(2)
+ResourceMaxAmounts = PackedFloat32Array(10)
+HarvestSpeeds = PackedFloat32Array(1)
+HarvestRange = 24.0
+DropoffRange = 3.0
+Shortcut = "right_click"
+
+[node name="HealthBar" parent="." index="7"]
+visible = true
+offset_left = -13.0
+offset_right = 13.0
+offset_bottom = -19.0

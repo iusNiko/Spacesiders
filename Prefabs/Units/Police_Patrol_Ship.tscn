@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwkxqo7aktjuf"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_ydgvi"]
+[ext_resource type="Texture2D" uid="uid://f05bvmodjymf" path="res://Art/Units/Police_Patrol_Ship.png" id="2_cxkst"]
+[ext_resource type="PackedScene" uid="uid://dnovrypvb6mww" path="res://Prefabs/Weapons/Smoothbore_Rifle.tscn" id="3_ovfqa"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="3_t55vy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ta4gq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cxkst")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_asxet"]
+radius = 6.0
+
+[node name="Unit" instance=ExtResource("1_ydgvi")]
+Health = 350.0
+_maxHealth = 350.0
+_armor = 30.0
+_moveSpeed = 135.0
+Flags = PackedStringArray("imperial", "fighter")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ta4gq")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_asxet")
+
+[node name="Marker2D" type="Marker2D" parent="ShootPoints" index="0"]
+position = Vector2(3, -7)
+
+[node name="Marker2D2" type="Marker2D" parent="ShootPoints" index="1"]
+position = Vector2(-3, -7)
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -7.0
+offset_top = -9.0
+offset_right = 7.0
+offset_bottom = 9.0
+
+[node name="Weapon" parent="Weapons" index="0" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("3_ovfqa")]
+ShootPoint = NodePath("../../ShootPoints/Marker2D")
+
+[node name="Weapon2" parent="Weapons" index="1" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("3_ovfqa")]
+ShootPoint = NodePath("../../ShootPoints/Marker2D2")
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("3_t55vy")]
+
+[node name="HealthBar" parent="." index="7"]
+offset_left = -13.0
+offset_top = -18.0
+offset_right = 13.0
+offset_bottom = -14.0

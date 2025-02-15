@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqm6w727kvqnl"]
+
+[ext_resource type="PackedScene" uid="uid://cgev7b1utkvm6" path="res://Prefabs/Weapon.tscn" id="1_emhfl"]
+[ext_resource type="PackedScene" uid="uid://bfqgc1uu2yx7r" path="res://Prefabs/Projectiles/Small_Electric_Arc.tscn" id="2_b3phj"]
+
+[node name="Weapon" instance=ExtResource("1_emhfl")]
+ProjectilePrefab = ExtResource("2_b3phj")
+_attackSpeed = 3.6
+_range = 10.0

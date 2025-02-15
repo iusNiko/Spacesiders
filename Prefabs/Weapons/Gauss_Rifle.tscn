@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://m4rm6wf8jeyu"]
+
+[ext_resource type="PackedScene" uid="uid://cgev7b1utkvm6" path="res://Prefabs/Weapon.tscn" id="1_386k3"]
+[ext_resource type="PackedScene" uid="uid://y152iv42n888" path="res://Prefabs/Projectiles/PhysicalBullet.tscn" id="2_u7iyk"]
+
+[node name="Weapon" instance=ExtResource("1_386k3")]
+ProjectilePrefab = ExtResource("2_u7iyk")
+_attackSpeed = 1.25
+_range = 200.0

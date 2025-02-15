@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://y152iv42n888"]
+
+[ext_resource type="PackedScene" uid="uid://dyncrrfismipe" path="res://Prefabs/Projectiles/HomingProjectile.tscn" id="1_p7ryw"]
+[ext_resource type="Texture2D" uid="uid://c5uqxo1hehgru" path="res://Art/Projectiles/Bullet.png" id="2_5jtfj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7au8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5jtfj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpn6t"]
+size = Vector2(3, 3)
+
+[node name="Projectile" instance=ExtResource("1_p7ryw")]
+Speed = 450.0
+_damage = 8.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_7au8o")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_vpn6t")

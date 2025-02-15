@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv2c3u208jbj2"]
+
+[ext_resource type="PackedScene" uid="uid://baumjs0v26ati" path="res://Prefabs/Ability.tscn" id="1_m3c6q"]
+[ext_resource type="Script" path="res://Scripts/Abilities/AbilityHarvest.cs" id="2_aq4kw"]
+
+[node name="Ability" instance=ExtResource("1_m3c6q")]
+script = ExtResource("2_aq4kw")
+ResourceTypes = PackedStringArray()
+HarvestRates = PackedFloat32Array()
+ResourceMaxAmounts = PackedFloat32Array()
+HarvestSpeeds = PackedFloat32Array()
+HarvestRange = 4.0
+DropoffRange = 4.0

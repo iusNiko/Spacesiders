@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://gd0xo7bvdyaw"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_ldd3s"]
+[ext_resource type="Texture2D" uid="uid://c6pgmx4wuhq7f" path="res://Art/Units/Pirate_Galleon.png" id="2_ismwn"]
+[ext_resource type="PackedScene" uid="uid://dhlu4u3fxpt8p" path="res://Prefabs/Weapons/Pirate_Cannon.tscn" id="3_c3oe4"]
+[ext_resource type="PackedScene" uid="uid://m4rm6wf8jeyu" path="res://Prefabs/Weapons/Gauss_Rifle.tscn" id="4_ng7fx"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="5_2dx8d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_120me"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ismwn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymyxl"]
+radius = 12.0
+height = 38.0
+
+[node name="Unit" instance=ExtResource("1_ldd3s")]
+Health = 1200.0
+_maxHealth = 1200.0
+_armor = 50.0
+_moveSpeed = 50.0
+Radius = 12.0
+BonusAttackRotationDegrees = -90.0
+LootAmount = 2
+Flags = PackedStringArray("pirate", "cruiser")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_120me")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_ymyxl")
+
+[node name="Marker2D" type="Marker2D" parent="ShootPoints" index="0"]
+position = Vector2(14, -1)
+
+[node name="Marker2D2" type="Marker2D" parent="ShootPoints" index="1"]
+position = Vector2(14, 12)
+
+[node name="Marker2D3" type="Marker2D" parent="ShootPoints" index="2"]
+position = Vector2(14, 5)
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -19.0
+offset_top = -27.0
+offset_right = 19.0
+offset_bottom = 27.0
+
+[node name="Weapon" parent="Weapons" index="0" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("3_c3oe4")]
+ShootPoint = NodePath("../../ShootPoints/Marker2D2")
+
+[node name="Weapon2" parent="Weapons" index="1" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("4_ng7fx")]
+ShootPoint = NodePath("../../ShootPoints/Marker2D")
+
+[node name="Weapon3" parent="Weapons" index="2" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("4_ng7fx")]
+ShootPoint = NodePath("../../ShootPoints/Marker2D3")
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("5_2dx8d")]
+
+[node name="HealthBar" parent="." index="7"]
+offset_left = -23.0
+offset_top = -32.0
+offset_right = 23.0
+offset_bottom = -27.0

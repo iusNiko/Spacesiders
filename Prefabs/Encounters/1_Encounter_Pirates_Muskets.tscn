@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://f0emh8ihtfg4"]
+
+[ext_resource type="PackedScene" uid="uid://b10ky0n4eblv1" path="res://Prefabs/EncounterStandardUnits.tscn" id="1_6atqr"]
+
+[node name="EncounterStandardUnits" instance=ExtResource("1_6atqr")]
+UnitTypes = PackedStringArray("Pirate_Corvette", "Musket_Fighter")
+UnitCounts = PackedInt32Array(2, 3)
+UnitPositions = PackedVector2Array(0, 0, 50, 0)
+UnitTeams = PackedInt32Array(2, 2)

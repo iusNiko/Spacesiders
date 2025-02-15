@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://blkjgfebuu1b0"]
+
+[ext_resource type="Script" path="res://Scripts/Map.cs" id="1_0bsyp"]
+[ext_resource type="PackedScene" uid="uid://fnjcqkq6au16" path="res://Prefabs/Units/Fighter.tscn" id="1_i0pdv"]
+[ext_resource type="PackedScene" uid="uid://bjr52jqebcuuk" path="res://Prefabs/MapElements/EnemiesMob.tscn" id="3_hkuc8"]
+
+[node name="TestMap1" type="Node2D"]
+script = ExtResource("1_0bsyp")
+MapName = "TestMap1"
+Region = "Polska Zjednoczona Republika Ziemii"
+
+[node name="Unit" parent="." instance=ExtResource("1_i0pdv")]
+position = Vector2(637, 470)
+_armor = 0.0
+Team = 2
+
+[node name="Unit2" parent="." instance=ExtResource("1_i0pdv")]
+position = Vector2(751, 497)
+_armor = 0.0
+Team = 2
+
+[node name="Unit3" parent="." instance=ExtResource("1_i0pdv")]
+position = Vector2(706, 366)
+_armor = 0.0
+Team = 2
+
+[node name="EnemiesMob" parent="." instance=ExtResource("3_hkuc8")]
+position = Vector2(785, -424)
+UnitPool = "west_outskirts"

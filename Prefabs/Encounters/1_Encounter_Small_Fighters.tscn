@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://hbny3gm1eobk"]
+
+[ext_resource type="PackedScene" uid="uid://b10ky0n4eblv1" path="res://Prefabs/EncounterStandardUnits.tscn" id="1_skuli"]
+
+[node name="EncounterStandardUnits" instance=ExtResource("1_skuli")]
+UnitTypes = PackedStringArray("fighter")
+UnitCounts = PackedInt32Array(7)
+UnitPositions = PackedVector2Array(0, 0)
+UnitTeams = PackedInt32Array(2)

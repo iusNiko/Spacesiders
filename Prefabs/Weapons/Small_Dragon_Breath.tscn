@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbd3w5jdaq20s"]
+
+[ext_resource type="PackedScene" uid="uid://cgev7b1utkvm6" path="res://Prefabs/Weapon.tscn" id="1_yorx6"]
+[ext_resource type="PackedScene" uid="uid://42s8errna5y1" path="res://Prefabs/Projectiles/SmallDragonBreath.tscn" id="2_0mepc"]
+
+[node name="Weapon" instance=ExtResource("1_yorx6")]
+ProjectilePrefab = ExtResource("2_0mepc")
+_attackSpeed = 5.0
+_range = 40.0

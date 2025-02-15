@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgycnbb0gqifi"]
+
+[ext_resource type="PackedScene" uid="uid://n8ymprkwrvpm" path="res://Prefabs/RewardAugments.tscn" id="1_nt6rc"]
+
+[node name="RewardAugments" instance=ExtResource("1_nt6rc")]
+AugmentNames = PackedStringArray("augmentquickfighters")
+AugmentTeams = PackedInt32Array(1)

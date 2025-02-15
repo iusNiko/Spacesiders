@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtpjstfcesvak"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_h3v1l"]
+[ext_resource type="Texture2D" uid="uid://bey3bfkmn1pmk" path="res://Art/Units/Pirate_Frigate.png" id="2_c0nb6"]
+[ext_resource type="PackedScene" uid="uid://ccih7v252dd6b" path="res://Prefabs/Weapons/Photon_Torpedo.tscn" id="3_f5aev"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="3_r81ya"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_142xq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c0nb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlllq"]
+radius = 3.0
+height = 14.0
+
+[node name="Unit" instance=ExtResource("1_h3v1l")]
+Health = 60.0
+_maxHealth = 60.0
+_armor = 3.0
+_moveSpeed = 100.0
+Radius = 3.0
+Flags = PackedStringArray("pirate", "frigate")
+CostTypes = PackedStringArray("Credits")
+CostAmounts = PackedFloat32Array(5000)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_142xq")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_tlllq")
+
+[node name="Marker2D" type="Marker2D" parent="ShootPoints" index="0"]
+position = Vector2(0, -6)
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -5.0
+offset_top = -8.0
+offset_right = 5.0
+offset_bottom = 8.0
+
+[node name="Weapon" parent="Weapons" index="0" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("3_f5aev")]
+ShootPoint = NodePath("../../ShootPoints/Marker2D")
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("3_r81ya")]
+
+[node name="HealthBar" parent="." index="7"]
+offset_left = -8.0
+offset_top = -11.0
+offset_right = 8.0
+offset_bottom = -8.0

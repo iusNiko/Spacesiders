@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://vogatvvcbyie"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_apkbu"]
+[ext_resource type="Texture2D" uid="uid://eol33pabftbk" path="res://Art/Units/Small_Bone_Dragon.png" id="2_hp083"]
+[ext_resource type="PackedScene" uid="uid://bbd3w5jdaq20s" path="res://Prefabs/Weapons/Small_Dragon_Breath.tscn" id="3_fxxmf"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="4_xe6ci"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wqvlt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hp083")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hiydq"]
+radius = 8.0
+
+[node name="Unit" instance=ExtResource("1_apkbu")]
+Health = 230.0
+_maxHealth = 230.0
+_armor = 25.0
+_moveSpeed = 125.0
+Radius = 8.0
+Flags = PackedStringArray("creature", "fighter")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_wqvlt")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_hiydq")
+
+[node name="Marker2D" type="Marker2D" parent="ShootPoints" index="0"]
+position = Vector2(0, -12)
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -7.0
+offset_top = -14.0
+offset_right = 7.0
+offset_bottom = 14.0
+
+[node name="Weapon" parent="Weapons" index="0" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("3_fxxmf")]
+ShootPoint = NodePath("../../ShootPoints/Marker2D")
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("4_xe6ci")]
+
+[node name="HealthBar" parent="." index="7"]
+offset_left = -9.0
+offset_top = -18.0
+offset_right = 9.0
+offset_bottom = -15.0

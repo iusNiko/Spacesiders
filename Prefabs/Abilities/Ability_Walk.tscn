@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvv64d8das2tq"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/AbilityWalk.cs" id="1_cvdkc"]
+
+[node name="AbilityWalk" type="Node"]
+script = ExtResource("1_cvdkc")
+Shortcut = "right_click"

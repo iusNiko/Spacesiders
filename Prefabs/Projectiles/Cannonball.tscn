@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bylr0xp0430du"]
+
+[ext_resource type="PackedScene" uid="uid://bkams2t54ecip" path="res://Prefabs/Projectiles/DirectedProjectile.tscn" id="1_pxker"]
+[ext_resource type="Script" path="res://Scripts/Projectiles/Cannonball.cs" id="2_rc3uy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gjk2i"]
+load_path = "res://.godot/imported/Cannonball.png-608ac36435179a0de5e380fac66c53f2.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jpqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_gjk2i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3w62"]
+radius = 3.0
+
+[node name="Projectile" instance=ExtResource("1_pxker")]
+script = ExtResource("2_rc3uy")
+Acceleration = 0.0
+_damage = 54.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_2jpqo")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_r3w62")

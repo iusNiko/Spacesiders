@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6eqp5qftcirt"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_vw5hg"]
+[ext_resource type="Script" path="res://Scripts/Mothership.cs" id="2_d21t7"]
+[ext_resource type="Texture2D" uid="uid://cicnwkrb0q3au" path="res://Art/Units/Large_Mothership.png" id="2_dl0fo"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="3_xhkqr"]
+[ext_resource type="PackedScene" uid="uid://27oe165dcrq2" path="res://Prefabs/Abilities/Ability_Train.tscn" id="4_fmbd1"]
+[ext_resource type="PackedScene" uid="uid://csy7eudi33s4c" path="res://Prefabs/ResourceDropoff.tscn" id="5_7j53b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_28xeo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dl0fo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lo7v3"]
+radius = 21.0
+height = 74.0
+
+[node name="Unit" instance=ExtResource("1_vw5hg")]
+script = ExtResource("2_d21t7")
+WeaponSlots = 3
+UnitTrainingSlots = 3
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_28xeo")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_lo7v3")
+
+[node name="Marker2D" type="Marker2D" parent="ShootPoints" index="0"]
+position = Vector2(0, -25)
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -33.0
+offset_top = -46.0
+offset_right = 33.0
+offset_bottom = 46.0
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("3_xhkqr")]
+
+[node name="AbilityTrain" parent="Abilities" index="1" instance=ExtResource("4_fmbd1")]
+UnitToTrain = "harvester"
+Shortcut = "q"
+CommandCardName = "Train Harvester"
+CostTypes = PackedStringArray("Scrap")
+CostAmounts = PackedFloat32Array(50)
+
+[node name="HealthBar" parent="." index="7"]
+visible = true
+offset_left = -40.0
+offset_top = -51.0
+offset_right = 40.0
+offset_bottom = -46.0
+
+[node name="ResourceDropoff" parent="." index="8" instance=ExtResource("5_7j53b")]

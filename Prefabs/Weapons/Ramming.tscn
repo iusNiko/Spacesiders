@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://c53g0hao4d7ov"]
+
+[ext_resource type="PackedScene" uid="uid://cgev7b1utkvm6" path="res://Prefabs/Weapon.tscn" id="1_60uur"]
+[ext_resource type="Script" path="res://Scripts/Weapons/RammingWeapon.cs" id="2_2gvlo"]
+[ext_resource type="PackedScene" uid="uid://bc4qygaw1014m" path="res://Prefabs/Projectiles/RammingProjectile.tscn" id="3_ldisy"]
+
+[node name="Weapon" instance=ExtResource("1_60uur")]
+script = ExtResource("2_2gvlo")
+ProjectilePrefab = ExtResource("3_ldisy")
+_attackSpeed = 1.0
+_range = 10.0

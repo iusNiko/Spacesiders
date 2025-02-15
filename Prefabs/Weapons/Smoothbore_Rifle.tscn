@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnovrypvb6mww"]
+
+[ext_resource type="PackedScene" uid="uid://cgev7b1utkvm6" path="res://Prefabs/Weapon.tscn" id="1_m4qk5"]
+[ext_resource type="PackedScene" uid="uid://5u6tue0dcsa8" path="res://Prefabs/Projectiles/RubberBullet.tscn" id="2_bk1kl"]
+
+[node name="Weapon" instance=ExtResource("1_m4qk5")]
+ProjectilePrefab = ExtResource("2_bk1kl")
+_attackSpeed = 1.25
+_range = 175.0

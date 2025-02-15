@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://l356n0nv5mns"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_a0itm"]
+[ext_resource type="Texture2D" uid="uid://c1hndbof6h0v" path="res://Art/Units/Musket_Fighter.png" id="2_o1560"]
+[ext_resource type="PackedScene" uid="uid://c1kletaa6bc2g" path="res://Prefabs/Weapons/Musket.tscn" id="3_2thgl"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="3_6e1pa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huqpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o1560")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0iqka"]
+radius = 2.0
+height = 14.0
+
+[node name="Unit" instance=ExtResource("1_a0itm")]
+Health = 120.0
+_maxHealth = 120.0
+_armor = 5.0
+_moveSpeed = 110.0
+Flags = PackedStringArray("MusketFighter", "Fighter", "Antique")
+CostTypes = PackedStringArray("Credits")
+CostAmounts = PackedFloat32Array(1000)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_huqpl")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_0iqka")
+
+[node name="Marker2D" type="Marker2D" parent="ShootPoints" index="0"]
+position = Vector2(0, -7)
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -4.0
+offset_top = -9.0
+offset_right = 4.0
+offset_bottom = 9.0
+
+[node name="Weapon" parent="Weapons" index="0" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("3_2thgl")]
+_attackSpeed = 0.3
+_range = 220.0
+ShootPoint = NodePath("../../ShootPoints/Marker2D")
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("3_6e1pa")]
+
+[node name="HealthBar" parent="." index="7"]
+offset_left = -10.0
+offset_top = -12.0
+offset_right = 10.0
+offset_bottom = -9.0

@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnhbdbdvlteup"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_6wug6"]
+[ext_resource type="Texture2D" uid="uid://bcl2ft7o2n7bk" path="res://Art/Units/Service_Drone.png" id="2_b4s46"]
+[ext_resource type="PackedScene" uid="uid://dqm6w727kvqnl" path="res://Prefabs/Weapons/Electric_Welder.tscn" id="3_p66fx"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="4_p5tfq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r4dre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b4s46")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6toug"]
+radius = 2.0
+height = 6.0
+
+[node name="Unit" instance=ExtResource("1_6wug6")]
+Health = 50.0
+_maxHealth = 50.0
+_armor = 3.0
+_moveSpeed = 120.0
+Radius = 2.0
+Flags = PackedStringArray("electric_drone")
+CostTypes = PackedStringArray("Credits")
+CostAmounts = PackedFloat32Array(1500)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_r4dre")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_6toug")
+
+[node name="Marker2D" type="Marker2D" parent="ShootPoints" index="0"]
+position = Vector2(2, -3)
+
+[node name="Marker2D2" type="Marker2D" parent="ShootPoints" index="1"]
+position = Vector2(-2, -3)
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 4.0
+offset_bottom = 5.0
+
+[node name="Weapon" parent="Weapons" index="0" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("3_p66fx")]
+ShootPoint = NodePath("../../ShootPoints/Marker2D")
+
+[node name="Weapon2" parent="Weapons" index="1" node_paths=PackedStringArray("ShootPoint") instance=ExtResource("3_p66fx")]
+ShootPoint = NodePath("../../ShootPoints/Marker2D2")
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("4_p5tfq")]
+
+[node name="HealthBar" parent="." index="7"]
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 5.0
+offset_bottom = -5.0

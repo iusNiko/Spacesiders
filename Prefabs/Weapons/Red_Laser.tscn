@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtxvuvtuxppnp"]
+
+[ext_resource type="PackedScene" uid="uid://cgev7b1utkvm6" path="res://Prefabs/Weapon.tscn" id="1_hfywx"]
+[ext_resource type="PackedScene" uid="uid://doetefh5icfpa" path="res://Prefabs/Projectiles/RedLaserProjectile.tscn" id="2_kfn71"]
+
+[node name="Weapon" instance=ExtResource("1_hfywx")]
+ProjectilePrefab = ExtResource("2_kfn71")
+_attackSpeed = 0.75
+_range = 200.0

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhlu4u3fxpt8p"]
+
+[ext_resource type="PackedScene" uid="uid://cgev7b1utkvm6" path="res://Prefabs/Weapon.tscn" id="1_byuq0"]
+[ext_resource type="PackedScene" uid="uid://bylr0xp0430du" path="res://Prefabs/Projectiles/Cannonball.tscn" id="2_8kvll"]
+
+[node name="Weapon" instance=ExtResource("1_byuq0")]
+ProjectilePrefab = ExtResource("2_8kvll")
+_attackSpeed = 0.2
+_range = 300.0

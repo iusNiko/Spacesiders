@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsrtimwecx668"]
+
+[ext_resource type="PackedScene" uid="uid://k8v6kvjyadlb" path="res://Prefabs/InteractableObject.tscn" id="1_0iv3h"]
+[ext_resource type="Script" path="res://Scripts/InteractableObjects/Foundry.cs" id="2_pcc5t"]
+
+[node name="InteractableObject" instance=ExtResource("1_0iv3h")]
+script = ExtResource("2_pcc5t")

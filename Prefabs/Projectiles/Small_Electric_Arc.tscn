@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfqgc1uu2yx7r"]
+
+[ext_resource type="PackedScene" uid="uid://dyncrrfismipe" path="res://Prefabs/Projectiles/HomingProjectile.tscn" id="1_t6ovs"]
+[ext_resource type="Texture2D" uid="uid://cfimvj26ph4ow" path="res://Art/Projectiles/Electrocute.png" id="2_axxyd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p5py"]
+atlas = ExtResource("2_axxyd")
+region = Rect2(0, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fxor"]
+atlas = ExtResource("2_axxyd")
+region = Rect2(0, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21pvr"]
+atlas = ExtResource("2_axxyd")
+region = Rect2(3, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkrq4"]
+atlas = ExtResource("2_axxyd")
+region = Rect2(6, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luqn1"]
+atlas = ExtResource("2_axxyd")
+region = Rect2(9, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyvdi"]
+atlas = ExtResource("2_axxyd")
+region = Rect2(12, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n73gh"]
+atlas = ExtResource("2_axxyd")
+region = Rect2(15, 0, 3, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwhms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p5py")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fxor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21pvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkrq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luqn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyvdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n73gh")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tftxt"]
+size = Vector2(2, 6)
+
+[node name="Projectile" instance=ExtResource("1_t6ovs")]
+Speed = 200.0
+Acceleration = 40.0
+_damage = 6.0
+_armorPenetration = 50.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_rwhms")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_tftxt")

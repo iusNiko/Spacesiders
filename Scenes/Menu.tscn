@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5ok1qie2o5c3"]
+
+[ext_resource type="Texture2D" uid="uid://hfsrgcop6rd1" path="res://Art/UI/Main Menu/start.png" id="1_8sbcx"]
+[ext_resource type="Script" path="res://Scripts/UI/Main Menu/StartButton.cs" id="2_utshx"]
+[ext_resource type="Script" path="res://Scripts/UI/Main Menu/SavesList.cs" id="3_2dkvr"]
+[ext_resource type="Script" path="res://Scripts/UI/Main Menu/NewSaveButton.cs" id="3_mabfu"]
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="Start" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.402
+anchor_top = 0.454
+anchor_right = 0.558
+anchor_bottom = 0.546
+offset_left = -0.840027
+offset_top = -0.320038
+offset_right = -0.360107
+offset_bottom = 0.320007
+texture = ExtResource("1_8sbcx")
+script = ExtResource("2_utshx")
+
+[node name="SavesList" type="ItemList" parent="."]
+anchors_preset = -1
+anchor_left = 0.767
+anchor_top = 0.091
+anchor_right = 0.904
+anchor_bottom = 0.337
+offset_left = 0.359985
+offset_top = -0.280006
+offset_right = -0.680054
+offset_bottom = 0.039978
+script = ExtResource("3_2dkvr")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.767
+anchor_top = 0.061
+anchor_right = 0.876
+anchor_bottom = 0.099
+offset_left = -0.640015
+offset_top = 0.119995
+offset_right = -0.920044
+offset_bottom = 0.0799942
+text = "Select savefile:"
+
+[node name="NewSaveButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.684
+anchor_top = 0.093
+anchor_right = 0.76
+anchor_bottom = 0.119
+offset_left = 0.719971
+offset_top = -0.440002
+offset_right = 0.799927
+offset_bottom = 0.479996
+text = "New Save"
+script = ExtResource("3_mabfu")

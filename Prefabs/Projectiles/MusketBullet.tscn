@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://becgw4ph0hu4x"]
+
+[ext_resource type="PackedScene" uid="uid://bkams2t54ecip" path="res://Prefabs/Projectiles/DirectedProjectile.tscn" id="1_bs5kc"]
+[ext_resource type="Texture2D" uid="uid://bvd7ckvyxrg7k" path="res://Art/Projectiles/MusketBullet.png" id="2_jbjmw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c675t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jbjmw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee5co"]
+size = Vector2(3, 3)
+
+[node name="Projectile" instance=ExtResource("1_bs5kc")]
+Speed = 110.0
+Acceleration = 0.0
+_damage = 72.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_c675t")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_ee5co")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkams2t54ecip"]
+
+[ext_resource type="PackedScene" uid="uid://bmox7y5q5gxf" path="res://Prefabs/Projectile.tscn" id="1_xtd5k"]
+[ext_resource type="Script" path="res://Scripts/Projectiles/DirectedProjectile.cs" id="2_i0m3j"]
+
+[node name="Projectile" instance=ExtResource("1_xtd5k")]
+script = ExtResource("2_i0m3j")
+MaxLifetime = 15.0

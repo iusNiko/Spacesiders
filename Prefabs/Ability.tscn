@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://baumjs0v26ati"]
+
+[ext_resource type="Script" path="res://Scripts/Ability.cs" id="1_wqvcw"]
+
+[node name="Ability" type="Node"]
+script = ExtResource("1_wqvcw")

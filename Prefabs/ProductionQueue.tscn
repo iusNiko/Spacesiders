@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://47exlwlld5mj"]
+
+[ext_resource type="Script" path="res://Scripts/ProductionQueue.cs" id="1_yryhf"]
+
+[node name="ProductionQueue" type="Node"]
+script = ExtResource("1_yryhf")

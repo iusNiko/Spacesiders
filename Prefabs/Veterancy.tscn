@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn8c1ewa5iqvk"]
+
+[ext_resource type="Script" path="res://Scripts/Veterancy.cs" id="1_m6f6e"]
+
+[node name="Veterancy" type="Node"]
+script = ExtResource("1_m6f6e")

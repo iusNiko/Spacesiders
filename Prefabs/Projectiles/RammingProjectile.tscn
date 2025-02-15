@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://bc4qygaw1014m"]
+
+[ext_resource type="PackedScene" uid="uid://dyncrrfismipe" path="res://Prefabs/Projectiles/HomingProjectile.tscn" id="1_w672k"]
+[ext_resource type="Texture2D" uid="uid://cscbttam2dpmp" path="res://Art/Projectiles/Ramming.png" id="2_r8sf8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30m1k"]
+atlas = ExtResource("2_r8sf8")
+region = Rect2(28, 0, 14, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfvu2"]
+atlas = ExtResource("2_r8sf8")
+region = Rect2(14, 0, 14, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2xr3"]
+atlas = ExtResource("2_r8sf8")
+region = Rect2(0, 0, 14, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lilqv"]
+atlas = ExtResource("2_r8sf8")
+region = Rect2(14, 0, 14, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73vsj"]
+atlas = ExtResource("2_r8sf8")
+region = Rect2(28, 0, 14, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o375w"]
+atlas = ExtResource("2_r8sf8")
+region = Rect2(42, 0, 14, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2bl1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30m1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfvu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2xr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lilqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73vsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o375w")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 30.0
+}]
+
+[node name="Projectile" instance=ExtResource("1_w672k")]
+Speed = 500.0
+_damage = 30.0
+_armorPenetration = 20.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_m2bl1")
+animation = &"hit"
+autoplay = "hit"

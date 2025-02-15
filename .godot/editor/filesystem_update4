@@ -1,0 +1,63 @@
+res://Scenes/Maps/TehhanasRefuge.tscn
+res://Prefabs/UI.tscn
+res://Scripts/UI/Main Menu/StartButton.cs
+res://Scripts/UI/Main Menu/SavesList.cs
+res://Scripts/MapElements/RandomEnemies.cs
+res://Scripts/Encounter.cs
+res://Scripts/Loots/LootRandomStarEssence.cs
+res://Scripts/Rewards/RewardUnits.cs
+res://Scripts/Encounters/EncounterStandardUnits.cs
+res://Scripts/Projectiles/Cannonball.cs
+res://Scripts/ResourceDeposit.cs
+res://Scripts/ProductionQueue.cs
+res://Scripts/Reward.cs
+res://Scripts/UI/NextDestinationButton.cs
+res://Scripts/Unit.cs
+res://Scripts/EncounterNode.cs
+res://Scripts/InteractableObjects/QuantumCatapult.cs
+res://Scripts/Camera.cs
+res://Scripts/World.cs
+res://Scripts/Projectiles/HomingProjectile.cs
+res://Scripts/UI/CommandCard.cs
+res://Scripts/Loots/LootRandomExoticMatter.cs
+res://Scripts/UI/Meta Hub/LaunchButton.cs
+res://Scripts/UI/Vendors/FoundryForgeButton.cs
+res://Scripts/Weapon.cs
+res://Scripts/GameManager.cs
+res://Scripts/UI/Main Menu/NewSaveButton.cs
+res://Scripts/Rewards/RewardAugments.cs
+res://Scripts/UI/ResourcesPanel.cs
+res://Scripts/Mothership.cs
+res://Scripts/InteractableObjects/HyperLink.cs
+res://Scripts/UI/Vendors.cs
+res://Scripts/UI/FloatingText.cs
+res://Scripts/InteractableObject.cs
+res://Scripts/MapElements/EnemiesMob.cs
+res://Scripts/Map.cs
+res://Scripts/Loots/LootRandomCredits.cs
+res://Scripts/InteractableObjects/Foundry.cs
+res://Scripts/Abilities/AbilityWalk.cs
+res://Scripts/Loots/LootRandomUnit.cs
+res://Scripts/Loots/LootRandomScrap.cs
+res://Scripts/UI/CloseVendorButton.cs
+res://Scripts/UI/AbilityButton.cs
+res://Scripts/MapLabel.cs
+res://Scripts/Weapons/RammingWeapon.cs
+res://Scripts/UI/Console.cs
+res://Scripts/Abilities/AbilityHarvest.cs
+res://Scripts/Loots/LootRandomAlloys.cs
+res://Scripts/SelectionBox.cs
+res://Scripts/Ability.cs
+res://Scripts/UI/Vendors/FoundryUI.cs
+res://Scripts/UI/Meta Hub/MetaHubUI.cs
+res://Scripts/Projectiles/Breath.cs
+res://Scripts/Projectiles/DirectedProjectile.cs
+res://Scripts/UI/UnitTooltip.cs
+res://Scripts/ResourceDropoff.cs
+res://Scripts/UI/TownPortalButton.cs
+res://Scripts/Projectile.cs
+res://Scripts/Abilities/AbilityTrain.cs
+res://Scripts/UI/HealthBar.cs
+res://Scripts/Background.cs
+res://Scripts/Loot.cs
+res://Scripts/Projectiles/PhotonTorpedo.cs

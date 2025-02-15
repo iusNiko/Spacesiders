@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://biixg6yi6hgoe"]
+
+[ext_resource type="PackedScene" uid="uid://csl48hvufuf04" path="res://Prefabs/InteractableObjects/QuantumCatapult.tscn" id="1_ir5re"]
+[ext_resource type="Script" path="res://Scripts/Map.cs" id="1_xakxv"]
+[ext_resource type="PackedScene" uid="uid://bsrtimwecx668" path="res://Prefabs/InteractableObjects/Foundry.tscn" id="3_t660r"]
+
+[node name="TehhanasRefuge" type="Node2D"]
+script = ExtResource("1_xakxv")
+MapName = "Tehhanas Refuge"
+Region = "Western Borderlands"
+NorthernBoundary = -500.0
+SouthernBoundary = 500.0
+EasternBoundary = 500.0
+WesternBoundary = -500.0
+
+[node name="QuantumCatapult" parent="." instance=ExtResource("1_ir5re")]
+Label = "sd"
+
+[node name="Foundry" parent="." instance=ExtResource("3_t660r")]
+position = Vector2(327, -249)

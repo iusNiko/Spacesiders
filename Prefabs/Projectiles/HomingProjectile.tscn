@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyncrrfismipe"]
+
+[ext_resource type="PackedScene" uid="uid://bmox7y5q5gxf" path="res://Prefabs/Projectile.tscn" id="1_5y4c8"]
+[ext_resource type="Script" path="res://Scripts/Projectiles/HomingProjectile.cs" id="2_pxomt"]
+
+[node name="Projectile" instance=ExtResource("1_5y4c8")]
+script = ExtResource("2_pxomt")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cusl5ho7okwmj"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_15bnm"]
+[ext_resource type="Texture2D" uid="uid://mjrm4jdu1gtp" path="res://Art/Units/Small_Mothership.png" id="2_6v6lj"]
+[ext_resource type="Script" path="res://Scripts/Mothership.cs" id="2_a48g3"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="3_scjkf"]
+[ext_resource type="PackedScene" uid="uid://csy7eudi33s4c" path="res://Prefabs/ResourceDropoff.tscn" id="4_ddkjr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4n4si"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6v6lj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qljrs"]
+radius = 4.0
+
+[node name="Unit" instance=ExtResource("1_15bnm")]
+script = ExtResource("2_a48g3")
+WeaponSlots = 1
+UnitTrainingSlots = 1
+Health = 500.0
+_maxHealth = 500.0
+_moveSpeed = 160.0
+Flags = PackedStringArray("Mothership", "Fighter")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_4n4si")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_qljrs")
+
+[node name="Marker2D" type="Marker2D" parent="ShootPoints" index="0"]
+position = Vector2(0, -5)
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 6.0
+offset_bottom = 8.0
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("3_scjkf")]
+
+[node name="HealthBar" parent="." index="7"]
+visible = true
+offset_top = -12.0
+offset_bottom = -9.0
+
+[node name="ResourceDropoff" parent="." index="8" instance=ExtResource("4_ddkjr")]

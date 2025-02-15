@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://fnjcqkq6au16"]
+
+[ext_resource type="PackedScene" uid="uid://y0medgkvytw" path="res://Prefabs/Unit.tscn" id="1_s2abd"]
+[ext_resource type="Texture2D" uid="uid://dwmxvcedm4jk6" path="res://Art/Units/Fighter.png" id="2_4u8h0"]
+[ext_resource type="PackedScene" uid="uid://dtxvuvtuxppnp" path="res://Prefabs/Weapons/Red_Laser.tscn" id="3_1fl0u"]
+[ext_resource type="PackedScene" uid="uid://cvv64d8das2tq" path="res://Prefabs/Abilities/Ability_Walk.tscn" id="4_k0fma"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udgov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4u8h0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq73p"]
+radius = 7.0
+
+[node name="Unit" instance=ExtResource("1_s2abd")]
+Health = 100.0
+_maxHealth = 100.0
+_armor = 5.0
+_moveSpeed = 125.0
+Flags = PackedStringArray("fighter", "imperial")
+CostTypes = PackedStringArray("Credits")
+CostAmounts = PackedFloat32Array(3000)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_udgov")
+animation = &"idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_kq73p")
+
+[node name="LeftWing" type="Marker2D" parent="ShootPoints" index="0"]
+position = Vector2(-7, -1)
+
+[node name="RightWing" type="Marker2D" parent="ShootPoints" index="1"]
+position = Vector2(7, -1)
+
+[node name="SelectionBox" parent="." index="3"]
+offset_left = -10.0
+offset_top = -9.0
+offset_right = 10.0
+offset_bottom = 9.0
+
+[node name="Weapon" parent="Weapons" index="0" instance=ExtResource("3_1fl0u")]
+
+[node name="ProductionQueue" parent="." index="5"]
+MaxSlots = 10
+ProductionSlots = 4
+
+[node name="AbilityWalk" parent="Abilities" index="0" instance=ExtResource("4_k0fma")]
+
+[node name="HealthBar" parent="." index="7"]
+offset_left = -12.0
+offset_top = -15.0
+offset_right = 12.0
+offset_bottom = -11.0

@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://cyl3rjjbhy2q2"]
+
+[ext_resource type="PackedScene" uid="uid://bkams2t54ecip" path="res://Prefabs/Projectiles/DirectedProjectile.tscn" id="1_fs6w5"]
+[ext_resource type="Script" path="res://Scripts/Projectiles/PhotonTorpedo.cs" id="2_4q8n6"]
+[ext_resource type="Texture2D" uid="uid://x6n4g6f6mhru" path="res://Art/Projectiles/photon_torpedo.png" id="2_h7cth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbr1y"]
+atlas = ExtResource("2_h7cth")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc1j4"]
+atlas = ExtResource("2_h7cth")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfe1c"]
+atlas = ExtResource("2_h7cth")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3irc5"]
+atlas = ExtResource("2_h7cth")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwghd"]
+atlas = ExtResource("2_h7cth")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj1ew"]
+atlas = ExtResource("2_h7cth")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgmpv"]
+atlas = ExtResource("2_h7cth")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao2gw"]
+atlas = ExtResource("2_h7cth")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj1bx"]
+atlas = ExtResource("2_h7cth")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gcyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbr1y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc1j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfe1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3irc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwghd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj1ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgmpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao2gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj1bx")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 24.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_joji2"]
+radius = 1.0
+
+[node name="Projectile" instance=ExtResource("1_fs6w5")]
+script = ExtResource("2_4q8n6")
+ExplosionRadius = 24.0
+Speed = 80.0
+_damage = 50.0
+_armorPenetration = 15.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_6gcyp")
+animation = &"hit"
+autoplay = "default"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_joji2")

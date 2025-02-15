@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmo256snec5ly"]
+
+[ext_resource type="PackedScene" uid="uid://cy2ikqwoymbnc" path="res://Prefabs/RewardUnits.tscn" id="1_p755v"]
+
+[node name="RewardUnits" instance=ExtResource("1_p755v")]
+UnitTypes = PackedStringArray("Fighter")
+UnitCounts = PackedInt32Array(3)
+UnitPositions = PackedVector2Array(0, 0)
+UnitTeams = PackedInt32Array(1)
